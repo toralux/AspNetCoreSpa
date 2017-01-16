@@ -12,10 +12,11 @@ import { JqueryIntegrationComponent } from './jquery-integration/jquery-integrat
 import { ChangeDetectionDefaultComponent } from './change-detection/comment-selection-2.component';
 import { ChangeDetectionOnPushComponent } from './change-detection/comment-selection-1.component';
 import { ChangeDetectionComponent } from './change-detection/change-detection.component';
+import { ReactiveFormsExampleModules } from'./reactive-forms/product.module';
 import { routing } from './examples.routes';
 
 @NgModule({
-    imports: [routing, SharedModule, AdvancedDirectivesModule],
+    imports: [routing, SharedModule, AdvancedDirectivesModule, ReactiveFormsExampleModules],
     declarations: [
         ExamplesComponent,
         ExamplesHomeComponent,

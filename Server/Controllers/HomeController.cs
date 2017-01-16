@@ -64,7 +64,7 @@ namespace AspNetCoreSpa.Server.Controllers
                 using (var client = new HttpClient())
                 {
                     var requestUri = Request.Scheme + "://" + Request.Host + "/dist/main.js";
-                    var response = await client.GetAsync(requestUri);
+                    await client.GetAsync(requestUri);
                 }
             }
 
