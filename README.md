@@ -9,7 +9,7 @@
 
 * [ASP.NET Core](http://www.dot.net/)
 * [Entity Framework Core](https://docs.efproject.net/en/latest/)
-* [Angular 2.0.0](https://angular.io/)
+* [Angular 2](https://angular.io/)
 * [Webpack 2](https://webpack.github.io/)
 * [Bootstrap 4](http://v4-alpha.getbootstrap.com/)
 * [ng-bootstrap](https://ng-bootstrap.github.io/)
@@ -77,7 +77,7 @@ npm run test
 ```
 ### watch and run Angular 2 tests
 ```bash
-npm run watch:test
+npm run test:watch
 ```
 ### Typescript documentation
 
@@ -133,5 +133,6 @@ npm run e2e:live
 * docker run -it -d -p 85:80 aspnetcorespa
 * Navigate http://localhost:85
 
-# MSDeploy Azure
-"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -enableRule:AppOffline -source:contentPath="%USERPROFILE%\AspNetCoreSpa\bin\release\netcoreapp1.1\publish" -dest:contentPath="aspnetcorespa",ComputerName="https://aspnetcorespa.scm.azurewebsites.net/msdeploy.axd",UserName='$aspnetcorespa',Password='yourpassword',AuthType='Basic'
+# Azure MSDeploy command
+    * Use your site url, username, password
+"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -enableRule:AppOffline -source:contentPath="%USERPROFILE%\AspNetCoreSpa\bin\release\netcoreapp1.1\publish" -dest:contentPath="aspnetcorespa",ComputerName="https://aspnetcorespa.scm.azurewebsites.net/msdeploy.axd",UserName='yourusername',Password='yourpassword',AuthType='Basic'
