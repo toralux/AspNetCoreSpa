@@ -48,7 +48,7 @@ module.exports = function (options) {
       /**
        * Make sure root is Client
        */
-      modules: [path.resolve(__dirname, 'Client'), 'node_modules']
+      modules: [ path.resolve(__dirname, 'Client'), 'node_modules' ]
 
     },
 
@@ -56,22 +56,13 @@ module.exports = function (options) {
      * Options affecting the normal modules.
      *
      * See: http://webpack.github.io/docs/configuration.html#module
+     *
+     * 'use:' revered back to 'loader:' as a temp. workaround for #1188
+     * See: https://github.com/AngularClass/angular2-webpack-starter/issues/1188#issuecomment-262872034
      */
     module: {
 
       rules: [
-
-        /**
-         * Tslint loader support for *.ts files
-         *
-         * See: https://github.com/wbuchwalter/tslint-loader
-         */
-        {
-          enforce: 'pre',
-          test: /\.ts$/,
-          loader: 'tslint-loader',
-          exclude: [helpers.root('node_modules')]
-        },
 
         /**
          * Source map loader support for *.js files
@@ -132,7 +123,7 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
-          loaders: ['to-string-loader', 'css-loader'],
+          loader: ['to-string-loader', 'css-loader'],
           exclude: [helpers.root('Client/index.html')]
         },
 
@@ -204,30 +195,21 @@ module.exports = function (options) {
        */
       new ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-        helpers.root('src') // location of your src
+        /angular(\\|\/)core(\\|\/)(esm(\\|\/)Client|Client)(\\|\/)linker/,
+        helpers.root('Client'), // location of your Client
+        {
+          // your Angular Async Route paths relative to this root directory
+        }
       ),
 
-      /**
-      * Plugin LoaderOptionsPlugin (experimental)
-      *
-      * See: https://gist.github.com/sokra/27b24881210b56bbaff7
-      */
+       /**
+       * Plugin LoaderOptionsPlugin (experimental)
+       *
+       * See: https://gist.github.com/sokra/27b24881210b56bbaff7
+       */
       new LoaderOptionsPlugin({
         debug: true,
         options: {
-          resolve: {},
-          /**
-           * Static analysis linter for TypeScript advanced options configuration
-           * Description: An extensible linter for the TypeScript language.
-           *
-           * See: https://github.com/wbuchwalter/tslint-loader
-           */
-          tslint: {
-            emitErrors: false,
-            failOnHint: false,
-            resourcePath: 'Client'
-          },
 
         }
       }),

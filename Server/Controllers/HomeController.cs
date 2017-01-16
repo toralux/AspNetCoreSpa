@@ -6,7 +6,6 @@ using AspNetCoreSpa.Server.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.PlatformAbstractions;
 
 namespace AspNetCoreSpa.Server.Controllers
 {
@@ -23,7 +22,7 @@ namespace AspNetCoreSpa.Server.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.HashedMain = GetHashedMainDotJs();
+            ViewBag.MainDotJs = GetMainDotJs();
 
             if (Request.Query.ContainsKey("emailConfirmCode") &&
                 Request.Query.ContainsKey("userId"))
@@ -53,7 +52,8 @@ namespace AspNetCoreSpa.Server.Controllers
             return View();
         }
 
-        public string GetHashedMainDotJs()
+        // Becasue for production this is hashed chunk so has changes on each production build
+        public string GetMainDotJs()
         {
             var basePath = _env.WebRootPath + "//dist//";
             var info = new System.IO.DirectoryInfo(basePath);

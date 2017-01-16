@@ -9,7 +9,7 @@
 
 * [ASP.NET Core](http://www.dot.net/)
 * [Entity Framework Core](https://docs.efproject.net/en/latest/)
-* [Angular 2.0.0 Final](https://angular.io/)
+* [Angular 2.0.0](https://angular.io/)
 * [Webpack 2](https://webpack.github.io/)
 * [Bootstrap 4](http://v4-alpha.getbootstrap.com/)
 * [ng-bootstrap](https://ng-bootstrap.github.io/)
@@ -24,12 +24,15 @@
 * Type manager with [Typings](https://github.com/typings/typings)
 * [HMR](https://webpack.github.io/docs/hot-module-replacement.html) (Hot Module Replacement) with Webpack
 * Webpack DLL support for fast rebuilds (~ < 0.5 second)
+* [compodoc](https://github.com/compodoc/compodoc) for better angular documentation
 * [Typedoc](http://typedoc.io/) for typescript documentation
 * [Server](https://github.com/aspnet/dotnet-watch) and [client](https://webpack.github.io/docs/hot-module-replacement.html) watches
 * Login and Registration functionality using [Asp.Net Identity](https://docs.asp.net/en/latest/security/authentication/identity.html)
+* Token based authentication using [Openiddict](https://github.com/openiddict/openiddict-core)
+     * Get public key acess using: http://localhost:5000/.well-known/jwks
 * Extensible User/Role identity implementation
 * Various social login support, Follow [this](https://github.com/asadsahi/AspNetCoreSpa/wiki/Social-Login-Setup) wiki page to see how it will work.
-* Lazy loading of all routes, child routes (About page example) with basic animation example (On about page).
+* Lazy loading with pre loading all modules for fast navigation.
 * [Angular 2 dynamic forms](https://angular.io/docs/ts/latest/cookbook/dynamic-form.html) for reusability and to keep html code DRY.
 * [Serilog](https://serilog.net/) with [Seq](https://getseq.net/) support to manage structured logging.
 * [Swagger](http://swagger.io/) as Api explorer (Visit url **http://localhost:5000/swagger/ui** after running the application)
@@ -77,9 +80,20 @@ npm run test
 npm run watch:test
 ```
 ### Typescript documentation
-```bash
-npm run docs
-# this will create documentation in doc folder at the root location (open index.html file) 
+
+ * Steps to generate:
+    * npm run docs
+    * cd docs
+    * http-server
+
+### Compodoc Angular 2 documentation
+
+ * Steps to generate:
+    * npm i compodoc -g
+    * npm run compodoc
+    * cd documentation
+    * http-server
+
 ```
 ### run end-to-end tests
 ```bash
@@ -100,3 +114,24 @@ npm run webdriver:start
 npm run e2e:live
 ```
 
+# AOT Don'ts
+
+## The following are some things that will make AOT compile fail.
+
+* Don’t use require statements for your templates or styles, use styleUrls and templateUrls, the angular2-template-loader plugin will change it to require at build time.
+* Don’t use default exports.
+* Don’t use form.controls.controlName, use form.get(‘controlName’)
+* Don’t use control.errors?.someError, use control.hasError(‘someError’)
+* Don’t use functions in your providers, routes or declarations, export a function and then reference that function name
+* Inputs, Outputs, View or Content Child(ren), Hostbindings, and any field you use from the template or annotate for Angular should be public
+
+# How to run in docker on windows: [more info](http://www.hanselman.com/blog/ExploringASPNETCoreWithDockerInBothLinuxAndWindowsContainers.aspx)
+* Install docker for windows (this will install HyperV linux host on windows)
+* npm run build:prod
+* dotnet publish
+* docker build bin\Debug\netcoreapp1.1\publish -t aspnetcorespa
+* docker run -it -d -p 85:80 aspnetcorespa
+* Navigate http://localhost:85
+
+# MSDeploy Azure
+"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -enableRule:AppOffline -source:contentPath="%USERPROFILE%\AspNetCoreSpa\bin\release\netcoreapp1.1\publish" -dest:contentPath="aspnetcorespa",ComputerName="https://aspnetcorespa.scm.azurewebsites.net/msdeploy.axd",UserName='$aspnetcorespa',Password='yourpassword',AuthType='Basic'

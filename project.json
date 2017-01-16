@@ -6,7 +6,8 @@
       "version": "1.1.0",
       "type": "platform"
     },
-    "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
+    "AspNet.Security.OAuth.Introspection": "1.0.0-alpha2-final",
+    "AspNet.Security.OAuth.Validation": "1.0.0-alpha2-final",
     "Microsoft.AspNetCore.AzureAppServicesIntegration": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics": "1.1.0",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.1.0",
@@ -39,6 +40,9 @@
     "Microsoft.AspNetCore.AngularServices": "1.0.0-beta-000019",
     "AspNet.Security.OAuth.GitHub": "1.0.0-beta1-final",
     "AspNet.Security.OAuth.LinkedIn": "1.0.0-beta1-final",
+    "OpenIddict": "1.0.0-*",
+    "OpenIddict.EntityFrameworkCore": "1.0.0-*",
+    "OpenIddict.Mvc": "1.0.0-*",
     "SendGrid.NetCore": "1.0.0-rtm-00002",
     "MailKit": "1.10.1",
     "Twilio": "5.0.0-rca2",
@@ -129,13 +133,14 @@
       "wwwroot",
       "Views",
       "appsettings.json",
-      "web.config"
+      "web.config",
+      "Dockerfile"
     ]
   },
   "scripts": {
     // "prepublish": [
     //   "npm install",
-    //   "node node_modules/webpack/bin/webpack.js --config config/webpack.config.vendor.js",
+    //   "node node_modules/webpack/bin/webpack.js --config config/webpack.vendor.js",
     //   "node node_modules/webpack/bin/webpack.js --config config/webpack.config.js"
     // ],
     "postpublish": [
