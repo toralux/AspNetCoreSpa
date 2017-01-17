@@ -2,8 +2,8 @@
 import { Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { RegisterModel } from '../register.model';
-import { RegisterService } from '../register.service';
+import { RegisterModel } from '../../core/models/register-model';
+import { AccountService } from '../../core/account/account.service';
 import { ControlBase } from '../../shared/forms/control-base';
 import { ControlTextbox } from '../../shared/forms/control-textbox';
 
@@ -12,21 +12,13 @@ import { ControlTextbox } from '../../shared/forms/control-textbox';
     templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
-    public registerModel: RegisterModel;
-    public errors: string[];
+    public errors: string[] = [];
     public controls: Array<ControlBase<any>>;
 
-    constructor(public registerService: RegisterService, public router: Router, public route: ActivatedRoute) {
-        this.registerModel = new RegisterModel('', '', '', '', '');
-    }
+    constructor(public accountService: AccountService, public router: Router, public route: ActivatedRoute) { }
 
-    public register(model: any): void {
-        this.registerModel.username = model.username;
-        this.registerModel.email = model.email;
-        this.registerModel.firstname = model.firstname;
-        this.registerModel.lastname = model.lastname;
-        this.registerModel.password = model.password;
-        this.registerService.register(this.registerModel)
+    public register(model: RegisterModel): void {
+        this.accountService.register(model)
             .subscribe((res: Response) => {
                 this.router.navigate(['../registerconfirmation'], { relativeTo: this.route, queryParams: { emailConfirmed: true } });
             },

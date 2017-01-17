@@ -5,5 +5,5 @@ import { Component, Input } from '@angular/core';
     templateUrl: './error-summary.component.html'
 })
 export class ErrorSummaryComponent {
-    @Input() public errors: string | string[];
+    @Input() public errors: string[];
 }

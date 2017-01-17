@@ -16,7 +16,7 @@ import { UtilityService } from '../shared/services/utility.service';
 })
 export class LoginComponent implements OnInit {
     public loginModel: LoginModel;
-    public errors: string[];
+    public errors: string[] = [];
     public controls: any;
 
     constructor(
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
             .subscribe(() => {
                 this.utilityService.navigate('');
             },
-            (errors: string[]) => {
-                this.errors = errors;
+            (errors: any) => {
+                this.errors.push(errors['error_description']);
             });
     };
 

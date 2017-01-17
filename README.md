@@ -10,6 +10,7 @@
 * [ASP.NET Core](http://www.dot.net/)
 * [Entity Framework Core](https://docs.efproject.net/en/latest/)
 * [Angular 2](https://angular.io/)
+* [Angular 2 CLI](https://github.com/angular/angular-cli/) integration for Angular 2 scaffolding.
 * [Webpack 2](https://webpack.github.io/)
 * [Bootstrap 4](http://v4-alpha.getbootstrap.com/)
 * [ng-bootstrap](https://ng-bootstrap.github.io/)
