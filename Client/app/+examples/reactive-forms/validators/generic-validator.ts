@@ -23,7 +23,7 @@ export class GenericValidator {
     // Structure
     // controlName1: 'Validation Message.',
     // controlName2: 'Validation Message.'
-    processMessages(container: FormGroup): { [key: string]: string } {
+    public processMessages(container: FormGroup): { [key: string]: string } {
         let messages = {};
         for (let controlKey in container.controls) {
             if (container.controls.hasOwnProperty(controlKey)) {

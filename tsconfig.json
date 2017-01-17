@@ -8,9 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "noEmit": true,
+    "noEmitHelpers": true,
     "strictNullChecks": false,
-    "baseUrl": "./Client",
-    "paths": {},
     "lib": [
       "dom",
       "es6"
@@ -29,7 +28,8 @@
   },
   "exclude": [
     "node_modules",
-    "wwwroot"
+    "dist",
+    "compiled"
   ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,

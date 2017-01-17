@@ -8,7 +8,7 @@ export class ProductDetailGuard implements CanActivate {
 
     constructor(private router: Router) { }
 
-    canActivate(route: ActivatedRouteSnapshot): boolean {
+    public canActivate(route: ActivatedRouteSnapshot): boolean {
         let id = +route.url[1].path;
         if (isNaN(id) || id < 1) {
             alert('Invalid product Id');
@@ -16,15 +16,16 @@ export class ProductDetailGuard implements CanActivate {
             this.router.navigate(['/products']);
             // abort current navigation
             return false;
-        };
+        }
         return true;
     }
 }
 
+// tslint:disable-next-line:max-classes-per-file
 @Injectable()
 export class ProductEditGuard implements CanDeactivate<ProductEditComponent> {
 
-    canDeactivate(component: ProductEditComponent): boolean {
+    public canDeactivate(component: ProductEditComponent): boolean {
         if (component.productForm.dirty) {
             let productName = component.productForm.get('productName').value || 'New Product';
             return confirm(`Navigate away and lose all changes to ${productName}?`);

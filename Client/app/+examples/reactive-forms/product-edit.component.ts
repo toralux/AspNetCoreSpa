@@ -18,21 +18,20 @@ import { GenericValidator } from './validators/generic-validator';
     templateUrl: './product-edit.component.html'
 })
 export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
-    @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
+    @ViewChildren(FormControlName, { read: ElementRef }) public formInputElements: ElementRef[];
 
-    pageTitle: string = 'Product Edit';
-    errorMessage: string;
-    productForm: FormGroup;
-
-    product: IProduct;
-    private sub: Subscription;
-
+    public pageTitle: string = 'Product Edit';
+    public errorMessage: string;
+    public productForm: FormGroup;
+    public product: IProduct;
+    public sub: Subscription;
     // Use with the generic validation message class
-    displayMessage: { [key: string]: string } = {};
-    private validationMessages: { [key: string]: { [key: string]: string } };
-    private genericValidator: GenericValidator;
+    public displayMessage: any = {};
+    public validationMessages: any = {};
+    public genericValidator: GenericValidator;
 
-    get tags(): FormArray {
+    public get tags(): FormArray {
+        // tslint:disable-next-line:whitespace
         return <FormArray>this.productForm.get('tags');
     }
 
@@ -63,7 +62,7 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
         this.genericValidator = new GenericValidator(this.validationMessages);
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.productForm = this.fb.group({
             productName: ['', [Validators.required,
             Validators.minLength(3),
@@ -83,13 +82,13 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
         );
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.sub.unsubscribe();
     }
 
-    ngAfterViewInit(): void {
+    public ngAfterViewInit(): void {
         // Watch for the blur event from any input element on the form.
-        let controlBlurs: Observable<any>[] = this.formInputElements
+        let controlBlurs: Array<Observable<any>> = this.formInputElements
             .map((formControl: ElementRef) => Observable.fromEvent(formControl.nativeElement, 'blur'));
 
         // Merge the blur event observable with the valueChanges observable
@@ -98,19 +97,20 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-    addTag(): void {
+    public addTag(): void {
         this.tags.push(new FormControl());
     }
 
-    getProduct(id: number): void {
+    public getProduct(id: number): void {
         this.productService.getProduct(id)
             .subscribe(
             (product: IProduct) => this.onProductRetrieved(product),
+            // tslint:disable-next-line:whitespace
             (error: any) => this.errorMessage = <any>error
             );
     }
 
-    onProductRetrieved(product: IProduct): void {
+    public onProductRetrieved(product: IProduct): void {
         if (this.productForm) {
             this.productForm.reset();
         }
@@ -132,7 +132,7 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
         this.productForm.setControl('tags', this.fb.array(this.product.tags || []));
     }
 
-    deleteProduct(): void {
+    public deleteProduct(): void {
         if (this.product.id === 0) {
             // Don't delete, it was never saved.
             this.onSaveComplete();
@@ -141,13 +141,14 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.productService.deleteProduct(this.product.id)
                     .subscribe(
                     () => this.onSaveComplete(),
+                    // tslint:disable-next-line:whitespace
                     (error: any) => this.errorMessage = <any>error
                     );
             }
         }
     }
 
-    saveProduct(): void {
+    public saveProduct(): void {
         if (this.productForm.dirty && this.productForm.valid) {
             // Copy the form values over the product object values
             let p = Object.assign({}, this.product, this.productForm.value);
@@ -155,6 +156,7 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
             this.productService.saveProduct(p)
                 .subscribe(
                 () => this.onSaveComplete(),
+                // tslint:disable-next-line:whitespace
                 (error: any) => this.errorMessage = <any>error
                 );
         } else if (!this.productForm.dirty) {
@@ -162,7 +164,7 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    onSaveComplete(): void {
+    public onSaveComplete(): void {
         // Reset the form to clear the flags
         this.productForm.reset();
         this.router.navigate(['/products']);

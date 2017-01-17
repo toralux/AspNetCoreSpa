@@ -16,21 +16,21 @@ export class ProductService {
 
     constructor(private http: Http) { }
 
-    getProducts(): Observable<IProduct[]> {
+    public getProducts(): Observable<IProduct[]> {
         return this.http.get(this.baseUrl)
             .map(this.extractData)
             .do(data => console.log('getProducts: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    getProduct(id: number): Observable<IProduct> {
+    public getProduct(id: number): Observable<IProduct> {
         if (id === 0) {
             return Observable.of(this.initializeProduct());
             // return Observable.create((observer: any) => {
             //     observer.next(this.initializeProduct());
             //     observer.complete();
             // });
-        };
+        }
         const url = `${this.baseUrl}/${id}`;
         return this.http.get(url)
             .map(this.extractData)
@@ -38,9 +38,9 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    deleteProduct(id: number): Observable<Response> {
+    public deleteProduct(id: number): Observable<Response> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        let options = new RequestOptions({ headers });
 
         const url = `${this.baseUrl}/${id}`;
         return this.http.delete(url, options)
@@ -48,9 +48,9 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    saveProduct(product: IProduct): Observable<IProduct> {
+    public saveProduct(product: IProduct): Observable<IProduct> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        let options = new RequestOptions({ headers });
 
         if (product.id === 0) {
             return this.createProduct(product, options);
@@ -82,11 +82,10 @@ export class ProductService {
     private handleError(error: Response): Observable<any> {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console
-        console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    initializeProduct(): IProduct {
+    private initializeProduct(): IProduct {
         // Return an initialized object
         return {
             id: 0,

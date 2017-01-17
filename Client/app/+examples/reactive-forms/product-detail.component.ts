@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Subscription }       from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 import { IProduct } from './product';
 import { ProductService } from './product.service';
@@ -10,39 +10,41 @@ import { ProductService } from './product.service';
     templateUrl: './product-detail.component.html'
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
-    pageTitle: string = 'Product Detail';
-    product: IProduct;
-    errorMessage: string;
-    private sub: Subscription;
+    public pageTitle: string = 'Product Detail';
+    public product: IProduct;
+    public errorMessage: string;
+    public sub: Subscription;
 
-    constructor(private route: ActivatedRoute,
-                private router: Router,
-                private productService: ProductService) {
+    constructor(
+        public route: ActivatedRoute,
+        public router: Router,
+        public productService: ProductService) {
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.sub = this.route.params.subscribe(
             params => {
                 let id = +params['id'];
                 this.getProduct(id);
-        });
+            });
     }
 
-    ngOnDestroy() {
+    public ngOnDestroy() {
         this.sub.unsubscribe();
     }
 
-    getProduct(id: number) {
+    public getProduct(id: number) {
         this.productService.getProduct(id).subscribe(
             product => this.product = product,
+            // tslint:disable-next-line:whitespace
             error => this.errorMessage = <any>error);
     }
 
-    onBack(): void {
+    public onBack(): void {
         this.router.navigate(['/products']);
     }
 
-    onRatingClicked(message: string): void {
+    public onRatingClicked(message: string): void {
         this.pageTitle = 'Product Detail: ' + message;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit }  from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './product';
 import { ProductService } from './product.service';
@@ -8,30 +8,29 @@ import { ProductService } from './product.service';
     styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-    pageTitle: string = 'Product List';
-    imageWidth: number = 50;
-    imageMargin: number = 2;
-    showImage: boolean = false;
-    listFilter: string;
-    errorMessage: string;
+    public pageTitle: string = 'Product List';
+    public imageWidth: number = 50;
+    public imageMargin: number = 2;
+    public showImage: boolean = false;
+    public listFilter: string;
+    public errorMessage: string;
 
-    products: IProduct[];
+    public products: IProduct[];
 
-    constructor(private productService: ProductService) {
+    constructor(private productService: ProductService) { }
 
-    }
-
-    toggleImage(): void {
+    public toggleImage(): void {
         this.showImage = !this.showImage;
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.productService.getProducts()
-                .subscribe(products => this.products = products,
-                           error => this.errorMessage = <any>error);
+            .subscribe(products => this.products = products,
+            // tslint:disable-next-line:whitespace
+            error => this.errorMessage = <any>error);
     }
 
-    onRatingClicked(message: string): void {
+    public onRatingClicked(message: string): void {
         this.pageTitle = 'Product List: ' + message;
     }
 }
