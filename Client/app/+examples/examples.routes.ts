@@ -18,6 +18,10 @@ const routes: Routes = [
       { path: 'rxjs', component: RxjsComponent },
       { path: 'advanceddirectives', component: AdvancedDirectivesComponent },
       { path: 'jqueryintegration', component: JqueryIntegrationComponent },
+      {
+        path: 'reactiveforms',
+        loadChildren: './reactive-forms/product.module#ReactiveFormsExampleModules'
+      },
       { path: 'changedetection', component: ChangeDetectionComponent },
       { path: '', loadChildren: './component/component-home.module#ComponentModule' }
     ]

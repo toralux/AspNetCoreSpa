@@ -41,7 +41,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }
 
     public onBack(): void {
-        this.router.navigate(['/products']);
+        this.router.navigate(['examples/reactiveforms']);
     }
 
     public onRatingClicked(message: string): void {

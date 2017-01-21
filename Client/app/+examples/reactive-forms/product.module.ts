@@ -8,20 +8,19 @@ import { ProductListComponent } from './product-list.component';
 import { ProductDetailComponent } from './product-detail.component';
 import { ProductDetailGuard, ProductEditGuard } from './product-guard.service';
 import { ProductEditComponent } from './product-edit.component';
+import { ReactiveFormsExampleComponent } from './reactive-forms.component';
 
 import { ProductFilterPipe } from './product-filter.pipe';
 import { ProductService } from './product.service';
+import { routing } from './product.routes';
 
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule.forChild([
-      { path: 'reactiveforms', component: ProductListComponent },
-      { path: 'reactiveforms/product/:id', canActivate: [ProductDetailGuard], component: ProductDetailComponent },
-      { path: 'reactiveforms/productEdit/:id', canDeactivate: [ProductEditGuard], component: ProductEditComponent }
-    ])
+    routing
   ],
   declarations: [
+    ReactiveFormsExampleComponent,
     ProductListComponent,
     ProductDetailComponent,
     ProductEditComponent,

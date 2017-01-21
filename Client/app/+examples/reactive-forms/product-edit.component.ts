@@ -88,7 +88,7 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public ngAfterViewInit(): void {
         // Watch for the blur event from any input element on the form.
-        let controlBlurs: Array<Observable<any>> = this.formInputElements
+        let controlBlurs = this.formInputElements
             .map((formControl: ElementRef) => Observable.fromEvent(formControl.nativeElement, 'blur'));
 
         // Merge the blur event observable with the valueChanges observable
@@ -167,6 +167,6 @@ export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
     public onSaveComplete(): void {
         // Reset the form to clear the flags
         this.productForm.reset();
-        this.router.navigate(['/products']);
+        this.router.navigate(['reactiveforms']);
     }
 }
