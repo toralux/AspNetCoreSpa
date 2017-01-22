@@ -44,7 +44,7 @@ import * as _ from 'lodash'
  */
 
 // support NodeJS modules without type definitions
-declare module '*';
+// declare module '*';
 // declare var require: any;
 // declare var module: any;
 // declare var process: any;

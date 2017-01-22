@@ -10,12 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreSpa.Server.Controllers.api
 {
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    [AllowAnonymous]
-    public class ProductController : BaseController
+    public static class AllProducts
     {
-        private List<Product> _products = new List<Product>{
+        public static List<Product> PRODUCTS = new List<Product>{
 
             new Product{
                 Id= 1,
@@ -71,11 +68,22 @@ namespace AspNetCoreSpa.Server.Controllers.api
             }
 
     };
-        private readonly ApplicationDbContext _context;
 
+    }
+
+
+
+    [Produces("application/json")]
+    [Route("api/[controller]")]
+    [AllowAnonymous]
+    public class ProductController : BaseController
+    {
+        private readonly ApplicationDbContext _context;
+        private List<Product> _products;
         public ProductController(ApplicationDbContext context)
         {
             _context = context;
+            _products = AllProducts.PRODUCTS;
         }
 
         // GET: api/Product
@@ -99,9 +107,13 @@ namespace AspNetCoreSpa.Server.Controllers.api
                 return BadRequest(ModelState.GetModelErrors());
             }
 
-            var index = _products.IndexOf(product);
+            var productToEdit = _products.FirstOrDefault(p => p.Id == id);
+            var index = _products.IndexOf(productToEdit);
 
-            _products[index] = product;
+            if (index > -1)
+            {
+                _products[index] = product;
+            }
 
             return Ok(product);
         }

@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
+// import 'rxjs/add/operator/do';
+// import 'rxjs/add/operator/catch';
+// import 'rxjs/add/observable/throw';
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/observable/of';
 
 import { IProduct } from './product';
 
@@ -19,7 +19,7 @@ export class ProductService {
     public getProducts(): Observable<IProduct[]> {
         return this.http.get(this.baseUrl)
             .map(this.extractData)
-            .do(data => console.log('getProducts: ' + JSON.stringify(data)))
+            // .do(data => console.log('getProducts: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
@@ -34,7 +34,7 @@ export class ProductService {
         const url = `${this.baseUrl}/${id}`;
         return this.http.get(url)
             .map(this.extractData)
-            .do(data => console.log('getProduct: ' + JSON.stringify(data)))
+            // .do(data => console.log('getProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
@@ -44,7 +44,7 @@ export class ProductService {
 
         const url = `${this.baseUrl}/${id}`;
         return this.http.delete(url, options)
-            .do(data => console.log('deleteProduct: ' + JSON.stringify(data)))
+            // .do(data => console.log('deleteProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
@@ -62,7 +62,7 @@ export class ProductService {
         product.id = undefined;
         return this.http.post(this.baseUrl, product, options)
             .map(this.extractData)
-            .do(data => console.log('createProduct: ' + JSON.stringify(data)))
+            // .do(data => console.log('createProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
@@ -70,7 +70,7 @@ export class ProductService {
         const url = `${this.baseUrl}/${product.id}`;
         return this.http.put(url, product, options)
             .map(() => product)
-            .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
+            // .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
@@ -82,6 +82,7 @@ export class ProductService {
     private handleError(error: Response): Observable<any> {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console
+        debugger;
         return Observable.throw(error.json().error || 'Server error');
     }
 
