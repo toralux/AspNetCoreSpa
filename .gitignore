@@ -6,6 +6,7 @@ client/**/*.js
 /doc
 /documentation
 /logs
+stats.json
 client/**/*.js.map
 npm-debug.log*
 .awcache

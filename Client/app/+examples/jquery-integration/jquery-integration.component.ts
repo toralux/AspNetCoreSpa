@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ElementRef } from '@angular/core';
 
-import 'jquery';
+// import 'jquery';
 
 // require('../../../../node_modules/jquery-ui/ui/widgets/draggable');
 

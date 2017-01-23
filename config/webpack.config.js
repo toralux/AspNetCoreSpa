@@ -57,7 +57,7 @@ let commonConfig = {
         ]
     },
     entry: {
-        // 'polyfills': './Client/polyfills.ts',
+        'polyfills': './Client/polyfills.ts',
         'main': AOT ? './Client/main.aot.ts' : './Client/main.ts'
     },
     output: {

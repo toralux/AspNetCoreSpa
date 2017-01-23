@@ -1,6 +1,7 @@
 import {  PipeTransform, Pipe } from '@angular/core';
 import { IProduct } from './product';
 
+// tslint:disable-next-line:use-pipe-transform-interface
 @Pipe({
     // tslint:disable-next-line:pipe-naming
     name: 'productFilter'

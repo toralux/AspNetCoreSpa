@@ -1,10 +1,10 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ViewChildren, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray, Validators, FormControlName } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/observable/merge';
+// import 'rxjs/add/operator/debounceTime';
+// import 'rxjs/add/observable/fromEvent';
+// import 'rxjs/add/observable/merge';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -18,7 +18,8 @@ import { GenericValidator } from './validators/generic-validator';
     templateUrl: './product-edit.component.html'
 })
 export class ProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
-    @ViewChildren(FormControlName, { read: ElementRef }) public formInputElements: ElementRef[];
+    // tslint:disable-next-line:member-access
+    @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: QueryList<any>;
 
     public pageTitle: string = 'Product Edit';
     public errorMessage: string;
