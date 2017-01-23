@@ -10,14 +10,8 @@
     "typescript2",
     "bootstrap4"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/asadsahi/AspNetCoreSpa.git"
-  },
-  "author": {
-    "name": "Asad Sahi",
-    "email": "asadazmat@gmail.com"
-  },
+  "repository": "git+https://github.com/asadsahi/AspNetCoreSpa.git",
+  "author": "Asad Sahi <asadazmat@gmail.com>",
   "scripts": {
     "rimraf": "rimraf",
     "tslint": "tslint",
@@ -143,5 +137,6 @@
     "webpack-hot-middleware": "2.15.0",
     "webpack-md5-hash": "0.0.5",
     "webpack-merge": "2.4.0"
-  }
+  },
+  "license": "MIT"
 }
