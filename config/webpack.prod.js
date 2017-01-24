@@ -5,6 +5,9 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 
 module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',
+    entry: {
+        'polyfills': './Client/polyfills.ts'
+    },
     output: {
         filename: '[name].[chunkhash].bundle.js',
         sourceMapFilename: '[name].[chunkhash].bundle.map',
