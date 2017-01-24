@@ -32,16 +32,16 @@ let commonConfig = {
             {
                 test: /\.ts$/, exclude: [/\.(spec|e2e)\.ts$/],
                 use: [
-                    'awesome-typescript-loader',
-                    'angular2-template-loader',
                     {
                         loader: 'ng-router-loader',
                         options: {
-                            // loader: 'async-system',
+                            loader: 'async-import',
                             genDir: 'compiled',
                             aot: AOT
                         }
-                    }
+                    },
+                    'awesome-typescript-loader',
+                    'angular2-template-loader'
                 ]
             },
             {
@@ -66,10 +66,6 @@ let commonConfig = {
         publicPath: '/dist/'
     },
     profile: true,
-    // performance hints are off by default
-    // performance: {
-    //     hints: true
-    // },
     plugins: [
         new ExtractTextPlugin("vendor.css"),
         new webpack.DefinePlugin({
