@@ -9,7 +9,7 @@ export function hostStyle() {
         '[@routerTransition]': '',
         '[style.display]': '"block"',
         '[style.position]': '"absolute"'
-    }
+    };
 }
 
 function slideToLeft() {
