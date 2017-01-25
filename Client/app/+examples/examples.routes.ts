@@ -7,6 +7,7 @@ import { TypeaheadComponent } from './typeahead/typeahead.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { JqueryIntegrationComponent } from './jquery-integration/jquery-integration.component';
 import { ChangeDetectionComponent } from './change-detection/change-detection.component';
+import { DatetimeComponent } from './datetime/datetime.component';
 import { AdvancedDirectivesComponent } from './advanced-directives/advanced-directive.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'rxjs', component: RxjsComponent },
       { path: 'advanceddirectives', component: AdvancedDirectivesComponent },
       { path: 'jqueryintegration', component: JqueryIntegrationComponent },
+      { path: 'datetime', component: DatetimeComponent },
       {
         path: 'reactiveforms',
         loadChildren: './reactive-forms/product.module#ReactiveFormsExampleModules'

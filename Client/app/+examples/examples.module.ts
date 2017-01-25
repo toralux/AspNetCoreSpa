@@ -14,6 +14,7 @@ import { ChangeDetectionOnPushComponent } from './change-detection/comment-selec
 import { ChangeDetectionComponent } from './change-detection/change-detection.component';
 import { ReactiveFormsExampleModules } from'./reactive-forms/product.module';
 import { routing } from './examples.routes';
+import { DatetimeComponent } from './datetime/datetime.component';
 
 @NgModule({
     imports: [routing, SharedModule, AdvancedDirectivesModule, ReactiveFormsExampleModules],
@@ -27,7 +28,8 @@ import { routing } from './examples.routes';
         JqueryIntegrationComponent,
         ChangeDetectionComponent,
         ChangeDetectionOnPushComponent,
-        ChangeDetectionDefaultComponent
+        ChangeDetectionDefaultComponent,
+        DatetimeComponent
     ],
     providers: [WikipediaService]
 })
