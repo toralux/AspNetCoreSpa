@@ -1,7 +1,12 @@
 import { trigger, state, animate, style, transition } from '@angular/core';
 
 export function routerTransition() {
-    return slideToLeft();
+    return trigger('routerTransition', [
+        transition('void => *', [
+            style({ transform: 'translateX(-10%)' }),
+            animate(400)
+        ])
+    ]);
 }
 
 export function hostStyle() {
@@ -10,13 +15,4 @@ export function hostStyle() {
         '[style.display]': '"block"',
         '[style.position]': '"absolute"'
     };
-}
-
-function slideToLeft() {
-    return trigger('routerTransition', [
-        transition('void => *', [
-            style({ transform: 'translateX(-10%)' }),
-            animate(400)
-        ])
-    ]);
 }
