@@ -103,6 +103,7 @@
     "ngrx-store-freeze": "0.1.6",
     "node-sass": "4.3.0",
     "npm-run-all": "4.0.0",
+    "optimize-js-plugin": "0.0.4",
     "parse5": "2.2.2",
     "protractor": "4.0.14",
     "raw-loader": "0.5.1",
@@ -119,12 +120,10 @@
     "typedoc": "0.5.3",
     "typescript": "2.1.5",
     "url-loader": "0.5.7",
-    "v8-lazy-parse-webpack-plugin": "0.3.0",
     "webpack": "2.2.0",
     "webpack-dll-bundles-plugin": "1.0.0-beta.5",
     "webpack-externals-plugin": "1.0.0",
     "webpack-hot-middleware": "2.15.0",
-    "webpack-md5-hash": "0.0.5",
     "webpack-merge": "2.4.0"
   },
   "license": "MIT"

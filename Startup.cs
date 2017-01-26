@@ -46,7 +46,10 @@ namespace AspNetCoreSpa
             }
             services.AddOptions();
 
-            services.AddResponseCompression();
+            services.AddResponseCompression(options =>
+            {
+                options.MimeTypes = Helpers.DefaultMimeTypes;
+            });
 
             services.AddCustomDbContext();
 

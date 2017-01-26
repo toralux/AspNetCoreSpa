@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.config.js');
-const WebpackMd5Hash = require('webpack-md5-hash');
+const OptimizeJsPlugin = require('optimize-js-plugin');
 
 module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',
@@ -14,7 +14,17 @@ module.exports = webpackMerge(commonConfig, {
         chunkFilename: '[id].[chunkhash].chunk.js'
     },
     plugins: [
-        new WebpackMd5Hash(),
+        /**
+     * Webpack plugin to optimize a JavaScript file for faster initial load
+     * by wrapping eagerly-invoked functions.
+     *
+     * See: https://github.com/vigneshshanmugam/optimize-js-plugin
+     */
+
+        new OptimizeJsPlugin({
+            sourceMap: false
+        }),
+
         new webpack.optimize.UglifyJsPlugin({
             beautify: false,
             comments: false,
