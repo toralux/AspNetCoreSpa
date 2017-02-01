@@ -16,7 +16,7 @@ import { DataService } from './shared/services/data.service';
  */
 
 @Component({
-  selector: 'appc-app',
+  selector: 'appc-root',
   styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html'
 })
