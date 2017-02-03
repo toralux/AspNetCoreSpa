@@ -13,6 +13,7 @@ export function hostStyle() {
     return {
         '[@routerTransition]': '',
         '[style.display]': '"block"',
-        //'[style.position]': '"absolute"'
+
+        // '[style.position]': '"absolute"'
     };
 }
