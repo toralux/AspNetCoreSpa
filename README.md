@@ -56,16 +56,18 @@
 4. Install global dependencies
     npm install protractor rimraf -g
 5. npm install
-6. Create webpack vendor manifest file for fast webpack rebuils
-    For Development: npm run build:dev
-    For Production: npm run build:prod 
-8. Run the app:
-    1) One way
-    set ASPNETCORE_ENVIRONMENT=Development
+6. Run the app (Development mode):
+    i) One way:
+        F5 (This will automatically launch browser)
+    ii) Another way
+        set ASPNETCORE_ENVIRONMENT=Development
+        `dotnet run` (for single run) OR `dotnet watch run` (in watch mode)
+        Browse using http://localhost:5000 or http://localhost:5001 
+7. Run the app (Production mode):
+    npm run build:prod
+    set ASPNETCORE_ENVIRONMENT=Production
     `dotnet run` (for single run) OR `dotnet watch run` (in watch mode)
-    2) Another way:
-    Just F5 key if you are using VS code editor or Visual Studio IDE
-9. Browse using http://localhost:5000 or http://localhost:5001 
+    Browse using http://localhost:5000 or http://localhost:5001 
 
 ```
 
