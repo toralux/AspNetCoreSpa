@@ -48,7 +48,7 @@ module.exports = function (options) {
       /**
        * Make sure root is Client
        */
-      modules: [ path.resolve(__dirname, 'Client'), 'node_modules' ]
+      modules: [helpers.root('Client'), 'node_modules']
 
     },
 
@@ -202,11 +202,11 @@ module.exports = function (options) {
         }
       ),
 
-       /**
-       * Plugin LoaderOptionsPlugin (experimental)
-       *
-       * See: https://gist.github.com/sokra/27b24881210b56bbaff7
-       */
+      /**
+      * Plugin LoaderOptionsPlugin (experimental)
+      *
+      * See: https://gist.github.com/sokra/27b24881210b56bbaff7
+      */
       new LoaderOptionsPlugin({
         debug: true,
         options: {
