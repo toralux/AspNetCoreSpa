@@ -7,6 +7,7 @@
 
 * [ASP.NET Core](http://www.dot.net/)
 * [Entity Framework Core](https://docs.efproject.net/en/latest/)
+* [SignalR](https://github.com/aspnet/SignalR/)
 * [Angular](https://angular.io/)
 * [Webpack 2](https://webpack.github.io/)
 * [Bootstrap 4](http://v4-alpha.getbootstrap.com/)
@@ -64,7 +65,9 @@
     set ASPNETCORE_ENVIRONMENT=Production
     `dotnet run` (for single run) OR `dotnet watch run` (in watch mode)
     Browse using http://localhost:5000 or http://localhost:5001 
-
+8. SignalR metadata endpoint:
+    https://github.com/aspnet/SignalR
+    
 ```
 
 ## Other commands
