@@ -18,6 +18,7 @@ console.log("==========Is AOT Build = " + AOT + " ============")
 
 let commonConfig = {
     entry: {
+        'main-server': './Client/boot-server.ts',
         'main': AOT ? './Client/main.aot.ts' : './Client/main.ts'
     },
     output: {

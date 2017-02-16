@@ -14,4 +14,9 @@
     @RenderBody()
 </body>
 
+<cache>
+    @await Html.PrimeCacheAsync("api/content/languages")
+    @await Html.PrimeCacheAsync("api/content?lang=en")
+</cache>
+
 </html>
