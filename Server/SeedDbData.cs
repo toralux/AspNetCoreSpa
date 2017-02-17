@@ -72,6 +72,7 @@ namespace AspNetCoreSpa.Server
                 _context.Content.Add(new Content { Id = 5, Key = "APP_NAV_LOGOUT" });
                 _context.Content.Add(new Content { Id = 6, Key = "APP_NAV_REGISTER" });
                 _context.Content.Add(new Content { Id = 7, Key = "APP_NAV_ADMIN" });
+                _context.Content.Add(new Content { Id = 8, Key = "APP_NAV_CHAT" });
                 _context.SaveChanges();
             }
 
@@ -95,8 +96,11 @@ namespace AspNetCoreSpa.Server
                 _context.ContentText.Add(new ContentText { Text = "Register", LanguageId = 1, ContentId = 6 });
                 _context.ContentText.Add(new ContentText { Text = "registre", LanguageId = 2, ContentId = 6 });
 
-                _context.ContentText.Add(new ContentText { Text = "Admin", LanguageId = 1, ContentId = 7});
+                _context.ContentText.Add(new ContentText { Text = "Admin", LanguageId = 1, ContentId = 7 });
                 _context.ContentText.Add(new ContentText { Text = "Admin", LanguageId = 2, ContentId = 7 });
+
+                _context.ContentText.Add(new ContentText { Text = "Chat", LanguageId = 1, ContentId = 8 });
+                _context.ContentText.Add(new ContentText { Text = "bavarder", LanguageId = 2, ContentId = 8 });
 
                 _context.SaveChanges();
             }

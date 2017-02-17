@@ -1,3 +1,8 @@
+// http://stackoverflow.com/questions/40030002/how-to-load-signalr-js-in-webpack-inside-angular-2
+import 'expose-loader?jQuery!jquery';
+import '../node_modules/signalr/jquery.signalR.js';
+import './hubs';
+
 import './polyfills';
 import './styles/vendor.css';
 

@@ -3,6 +3,7 @@
 
 coverage/**/**
 client/**/*.js
+!client/hubs.js
 /doc
 /documentation
 /logs

@@ -4,6 +4,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreSpa.Server;
 using AspNetCoreSpa.Server.Extensions;
+using Server.Chat.Core.Mappings;
+using RecurrentTasks;
+using Server.Chat.Core;
+using System;
+using Server.Chat.Data;
+using Server.Chat.Data.Abstract;
+using Server.Chat.Data.Repositories;
 
 namespace AspNetCoreSpa
 {
@@ -45,6 +52,11 @@ namespace AspNetCoreSpa
                 services.AddSslCertificate(_hostingEnv);
             }
             services.AddOptions();
+            // Repositories
+            services.AddScoped<IMatchRepository, MatchRepository>();
+            services.AddScoped<IFeedRepository, FeedRepository>();
+            // Automapper Configuration
+            AutoMapperConfiguration.Configure();
 
             services.AddResponseCompression(options =>
             {
@@ -71,6 +83,9 @@ namespace AspNetCoreSpa
             services.AddNodeServices();
 
             services.AddSwaggerGen();
+
+            services.AddTask<FeedEngine>();
+
         }
         public void Configure(IApplicationBuilder app)
         {
@@ -110,6 +125,9 @@ namespace AspNetCoreSpa
 
             app.UseOAuthProviders();
 
+            //Configure SignalR
+            app.UseSignalR();
+
             app.UseMvc(routes =>
             {
                 routes.MapSpaFallbackRoute(
@@ -117,7 +135,9 @@ namespace AspNetCoreSpa
                     defaults: new { controller = "Home", action = "Index" });
             });
 
-            app.UseSignalR();
+            LiveGameDbInitializer.Initialize(app.ApplicationServices);
+
+            app.StartTask<FeedEngine>(TimeSpan.FromSeconds(15));
         }
     }
 }

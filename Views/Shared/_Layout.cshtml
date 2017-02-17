@@ -7,7 +7,6 @@
     <title>AspNetCoreSpa</title>
     <base href="/" />
     <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
-
 </head>
 
 <body>
@@ -15,8 +14,7 @@
 </body>
 
 <cache>
-    @await Html.PrimeCacheAsync("api/content/languages")
-    @await Html.PrimeCacheAsync("api/content?lang=en")
+    @await Html.PrimeCacheAsync("api/content/languages") @await Html.PrimeCacheAsync("api/content?lang=en")
 </cache>
 
 </html>

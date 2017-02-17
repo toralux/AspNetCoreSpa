@@ -1,6 +1,7 @@
 ﻿using AspNetCoreSpa.Server.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Server.Chat.Models;
 
 namespace AspNetCoreSpa.Server
 {
@@ -11,6 +12,11 @@ namespace AspNetCoreSpa.Server
         public DbSet<Language> Languageses { get; set; }
         public DbSet<Content> Content { get; set; }
         public DbSet<ContentText> ContentText { get; set; }
+        // Chat entities
+        public DbSet<Match> Matches { get; set; }
+        public DbSet<Feed> Feeds { get; set; }
+
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

@@ -65,8 +65,8 @@
     set ASPNETCORE_ENVIRONMENT=Production
     `dotnet run` (for single run) OR `dotnet watch run` (in watch mode)
     Browse using http://localhost:5000 or http://localhost:5001 
-8. SignalR metadata endpoint:
-    https://github.com/aspnet/SignalR
+8. SignalR proxy endpoint:
+    https://localhost:5000/signalr/hubs
     
 ```
 
