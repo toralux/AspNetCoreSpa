@@ -58,7 +58,8 @@ namespace Server.Chat.Data
                     }
                 };
 
-                context.Matches.Add(match_01); context.Matches.Add(match_02);
+                context.Matches.Add(match_01);
+                context.Matches.Add(match_02);
 
                 context.SaveChanges();
             }

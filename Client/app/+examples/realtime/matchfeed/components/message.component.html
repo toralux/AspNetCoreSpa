@@ -7,8 +7,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let match of matches">
-            <td><span class="teamName">{{match.Id}}</span></td>
-            <td><span class="teamScore"> {{match.Host}} vs {{match.Guest}} </span></td>
+            <td><span class="teamName">{{match.id}}</span></td>
+            <td><span class="teamScore"> {{match.host}} vs {{match.guest}} </span></td>
         </tr>
         <tr>
             <td colspan="2">
@@ -26,7 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let message of messages" feedHighlight>
+                            <tr *ngFor="let message of messages">
                                 <td>
                                     <span class="feed-time">{{message.CreatedAt | date:'shortTime' }} [{{message.MatchId}}]</span>
                                 </td>

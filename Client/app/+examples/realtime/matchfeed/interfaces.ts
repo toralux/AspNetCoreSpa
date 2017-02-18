@@ -28,21 +28,21 @@ export enum SignalRConnectionStatus {
 
 /* LiveGameFeed related interfaces */
 export interface Match {
-    Id: number;
-    Host: string;
-    Guest: string;
-    HostScore: number;
-    GuestScore: number;
-    MatchDate: Date;
-    Type: string;
-    Feeds: Feed[];
+    id: number;
+    host: string;
+    guest: string;
+    hostScore: number;
+    guestScore: number;
+    matchDate: Date;
+    type: string;
+    feeds: Feed[];
 }
 
 export interface Feed {
-    Id: number;
-    Description: string;
-    CreatedAt: Date;
-    MatchId: number;
+    id: number;
+    description: string;
+    createdAt: Date;
+    matchId: number;
 }
 
 export interface ChatMessage {

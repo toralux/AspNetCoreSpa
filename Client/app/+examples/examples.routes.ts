@@ -24,7 +24,9 @@ const routes: Routes = [
       },
       { path: 'changedetection', component: ChangeDetectionComponent },
       { path: '', loadChildren: './component/component-home.module#ComponentModule' },
-      { path: 'animations', loadChildren: './animations/animations.module#AnimationsModule' }
+      { path: 'animations', loadChildren: './animations/animations.module#AnimationsModule' },
+      { path: 'realtime', loadChildren: './realtime/realtime.module#RealtimeModule' }
+
     ]
   }
 ];

@@ -7,12 +7,12 @@
     </thead>
     <tbody>
         <tr>
-            <td><span class="teamName">{{match.Host}}</span></td>
-            <td><span class="teamScore"> {{match.HostScore}} </span></td>
+            <td><span class="teamName">{{match.host}}</span></td>
+            <td><span class="teamScore"> {{match.hostScore}} </span></td>
         </tr>
         <tr>
-            <td><span class="teamName"> {{match.Guest}} </span></td>
-            <td><span class="teamScore">{{match.GuestScore}}</span></td>
+            <td><span class="teamName"> {{match.guest}} </span></td>
+            <td><span class="teamScore">{{match.guestScore}}</span></td>
         </tr>
         <tr>
             <td>
@@ -42,12 +42,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let feed of match.Feeds" feedHighlight>
+                            <tr *ngFor="let feed of match.Feeds">
                                 <td>
-                                    <span class="feed-time">{{feed.CreatedAt | date:'shortTime' }}</span>
+                                    <span class="feed-time">{{feed.createdAt | date:'shortTime' }}</span>
                                 </td>
                                 <td class="filterable-cell">
-                                    <span class="feed-update"> {{feed.Description}} </span>
+                                    <span class="feed-update"> {{feed.description}} </span>
                                 </td>
                             </tr>
                         </tbody>

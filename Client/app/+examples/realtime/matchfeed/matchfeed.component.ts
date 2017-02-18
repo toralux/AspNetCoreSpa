@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FeedService } from './services/feed.service';
 import { ChatService } from './services/chat.service';
 import { Match, Feed } from './interfaces';
-import { DataService } from '../shared/services/data.service';
+import { DataService } from '../../../shared/services/data.service';
 import { SignalRConnectionStatus } from './interfaces';
 
 @Component({
-  selector: 'appc-chat',
-  templateUrl: './chat.component.html'
+  selector: 'appc-match-feed',
+  templateUrl: './matchfeed.component.html'
 })
-export class ChatComponent implements OnInit {
+export class MatchfeedComponent implements OnInit {
 
   public matches: Match[];
   public connectionId: string;
@@ -18,9 +18,6 @@ export class ChatComponent implements OnInit {
   constructor(private feedService: FeedService, private chatService: ChatService) { }
 
   public ngOnInit() {
-    this.feedService.start(true).subscribe(
-      null,
-      error => console.log('Error on init: ' + error));
 
     this.listenForConnection();
 
@@ -48,12 +45,12 @@ export class ChatComponent implements OnInit {
         // Listen for match score updates...
         self.feedService.updateMatch.subscribe(match => {
           for (let i of self.matches) {
-            if (i.Id === match.Id) {
-              i.HostScore = match.HostScore;
-              i.GuestScore = match.GuestScore;
+            if (i.id === match.id) {
+              i.hostScore = match.hostScore;
+              i.guestScore = match.guestScore;
 
-              if (match.HostScore === 0 && match.GuestScore === 0) {
-                i.Feeds = new Array<Feed>();
+              if (match.hostScore === 0 && match.guestScore === 0) {
+                i.feeds = new Array<Feed>();
               }
             }
           }
@@ -64,11 +61,11 @@ export class ChatComponent implements OnInit {
           feed => {
             console.log(feed);
             for (let i of this.matches) {
-              if (i.Id === feed.MatchId) {
-                if (!i.Feeds) {
-                  i.Feeds = new Array<Feed>();
+              if (i.id === feed.matchId) {
+                if (!i.feeds) {
+                  i.feeds = new Array<Feed>();
                 }
-                i.Feeds.unshift(feed);
+                i.feeds.unshift(feed);
               }
             }
           }

@@ -2,10 +2,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { ChatMessage, Match } from '../interfaces';
 import { FeedService } from '../services/feed.service';
-import { ChatService } from '..//services/chat.service';
+import { ChatService } from '../services/chat.service';
 
 @Component({
-    selector: 'match',
+    selector: 'appc-match',
     templateUrl: './match.component.html'
 })
 export class MatchComponent {
@@ -23,7 +23,7 @@ export class MatchComponent {
         this.subscribed = val;
         let subscription = {
             subscribe: val,
-            matchId: this.match.Id
+            matchId: this.match.id
         };
 
         this.updateSubscription.emit(subscription);
@@ -32,7 +32,7 @@ export class MatchComponent {
     public addChatMessage() {
         let self = this;
         let messageToSend: ChatMessage = {
-            MatchId: self.match.Id,
+            MatchId: self.match.id,
             Text: self.chatMessage,
             CreatedAt: new Date(Date.now())
         };

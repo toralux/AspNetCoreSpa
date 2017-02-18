@@ -18,7 +18,8 @@ export class ExamplesHomeComponent implements OnInit {
       { route: 'jqueryintegration', title: 'jQuery integration', description: 'Implementation of jquery inside Angular 2' },
       { route: 'changedetection', title: 'Change detection', description: 'Default vs onPush to illustrate better performance' },
       { route: 'reactiveforms', title: 'Reactive forms', description: 'Examples of reactive forms using angular reactive forms module' },
-      { route: 'datetime', title: 'Datetime example', description: 'Example of datetime picker using ng-bootstrap datetime component' }
+      { route: 'datetime', title: 'Datetime example', description: 'Example of datetime picker using ng-bootstrap datetime component' },
+      { route: 'realtime', title: 'Realtime examples', description: 'Realtime examples using Asp.Net core SignalR' }
     ];
   }
 

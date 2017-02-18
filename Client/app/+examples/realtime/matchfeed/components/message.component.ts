@@ -4,10 +4,10 @@ import { ChatMessage, Match } from '../interfaces';
 import { FeedService } from '../services/feed.service';
 
 @Component({
-    selector: 'chat',
-    templateUrl: './chat.component.html'
+    selector: 'appc-matchfeed-message',
+    templateUrl: './message.component.html'
 })
-export class ChattingComponent implements OnInit {
+export class MatchfeedMessageComponent implements OnInit {
 
     @Input()
     public matches: Match[];

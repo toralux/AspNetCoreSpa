@@ -1,9 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { ChatComponent } from './chat.component';
+import { RealtimeComponent } from './realtime.component';
 
 const routes: Routes = [
-  { path: '', component: ChatComponent }
+  { path: '', component: RealtimeComponent }
 ];
 
 export const routing = RouterModule.forChild(routes);

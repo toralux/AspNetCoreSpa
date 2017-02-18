@@ -17,9 +17,6 @@ const routes: Routes = [
   },
   {
     path: 'examples', loadChildren: './+examples/examples.module#ExamplesModule'
-  },
-  {
-    path: 'chat', loadChildren: './+chat/chat.module#ChatModule'
   }
 ];
 
