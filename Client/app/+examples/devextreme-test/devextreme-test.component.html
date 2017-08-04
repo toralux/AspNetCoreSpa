@@ -1,0 +1,8 @@
+<dx-button text="Press me" (onClick)="helloWorld()"></dx-button>
+
+<dx-data-grid [dataSource]="data">
+    <dxi-column dataField="firstName" caption="First Name"></dxi-column>
+    <dxi-column dataField="lastName" caption="Last Name" [visible]="showLastName"></dxi-column>
+</dx-data-grid>
+
+<dx-button text="Toggle the 'Last Name' column" (onClick)="toggleLastName()"></dx-button>

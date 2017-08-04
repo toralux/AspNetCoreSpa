@@ -15,7 +15,8 @@ const routes: Routes = [
             { path: 'googlemaps', loadChildren: './google-maps/google-maps.module#GoogleMapsModule' },
             { path: 'texteditor', loadChildren: './text-editor/text-editor.module#TextEditorModule' },
             { path: 'markdowneditor', loadChildren: './markdown-editor/markdown-editor.module#MarkdownEditorModule' },
-            { path: 'stripepayment', loadChildren: './stripe-payment/stripe-payment.module#StripePaymentModule'  }
+            { path: 'stripepayment', loadChildren: './stripe-payment/stripe-payment.module#StripePaymentModule' },
+            { path: 'devextreme-test', loadChildren: './devextreme-test/devextreme-test.module#DevExtremeTestModule' }
         ]
     },
 ];
