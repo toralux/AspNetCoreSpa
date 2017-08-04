@@ -38,8 +38,7 @@ module.exports = webpackMerge(commonConfig, {
                     'angular2-jwt',
                     '@ngrx/core',
                     '@ngrx/store',
-                    '@ngrx/store-devtools',
-                    '@ngx-translate/core'
+                    '@ngrx/store-devtools'
                 ]
             },
             dllDir: path.join(__dirname, '../wwwroot', '/dist'),

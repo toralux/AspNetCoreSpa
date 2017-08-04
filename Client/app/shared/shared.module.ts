@@ -2,7 +2,6 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { PageHeadingComponent } from './directives/page-heading.directive';
@@ -27,7 +26,6 @@ import { ContentService } from './services/content.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    TranslateModule,
     // No need to export as these modules don't expose any components/directive etc'
     HttpModule,
     JsonpModule
@@ -48,7 +46,6 @@ import { ContentService } from './services/content.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    TranslateModule,
     // Providers, Components, directive, pipes
     DynamicFormComponent,
     DynamicFormControlComponent,

@@ -53,7 +53,6 @@
     "@ngrx/devtools": "1.4.0",
     "@ngrx/store": "2.2.3",
     "@ngrx/store-devtools": "3.2.4",
-    "@ngx-translate/core": "7.0.0",
     "angular2-jwt": "0.2.3",
     "aspnet-prerendering": "3.0.1",
     "aspnet-webpack": "2.0.1",
