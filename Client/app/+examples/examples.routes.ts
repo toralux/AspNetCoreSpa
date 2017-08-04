@@ -9,13 +9,10 @@ const routes: Routes = [
             { path: 'reactiveforms', loadChildren: './reactive-forms/product.module#ReactiveFormsExampleModules' },
             { path: 'components', loadChildren: './component/component-home.module#ComponentModule' },
             { path: 'directives', loadChildren: './directives/directives.module#DirectivesModule' },
-            { path: 'uibootstrap', loadChildren: './uibootstrap/uibootstrap.module#UiBootstrapModule' },
-            { path: 'weather', loadChildren: './weather-search/weather.module#WeatherModule' },
             { path: 'jquery', loadChildren: './jquery/jquery.module#JqueryModule' },
             { path: 'googlemaps', loadChildren: './google-maps/google-maps.module#GoogleMapsModule' },
             { path: 'texteditor', loadChildren: './text-editor/text-editor.module#TextEditorModule' },
             { path: 'markdowneditor', loadChildren: './markdown-editor/markdown-editor.module#MarkdownEditorModule' },
-            { path: 'stripepayment', loadChildren: './stripe-payment/stripe-payment.module#StripePaymentModule' },
             { path: 'devextreme-test', loadChildren: './devextreme-test/devextreme-test.module#DevExtremeTestModule' }
         ]
     },

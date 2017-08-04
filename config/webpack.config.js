@@ -30,7 +30,7 @@ let commonConfig = {
        *
        * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
        */
-        extensions: ['.ts', '.js', '.json', '.scss', '.css', '.html'],
+        extensions: ['.ts', '.js', '.json', '.scss', '.less', '.css', '.html'],
 
         // An array of directory names to be resolved to the current directory
         modules: [helpers.root('Client'), 'node_modules'],
@@ -53,11 +53,19 @@ let commonConfig = {
                 ]
             },
             {
-                test: /\.css$/, loader: ExtractTextPlugin.extract({
+                test: /\.css$/, 
+                use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: "css-loader"
                 })
             },
+            { 
+                test: /\.less$/, 
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'less-loader']
+                }), 
+            },           
             { test: /\.scss$/, use: ['to-string-loader', 'css-loader', 'sass-loader'] },
             { test: /\.html$/, use: 'html-loader' },
             { test: /\.json$/, use: 'json-loader' },
@@ -67,7 +75,9 @@ let commonConfig = {
     },
     profile: true,
     plugins: [
-        new ExtractTextPlugin("vendor.css"),
+        new ExtractTextPlugin({
+            filename: "vendor.css"
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 'ENV': JSON.stringify(isDevBuild ? 'Development' : 'Production')
