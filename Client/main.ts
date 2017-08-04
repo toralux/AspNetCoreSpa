@@ -1,5 +1,5 @@
 import './polyfills';
-import './styles/vendor.css';
+import './styles/vendor.less';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
