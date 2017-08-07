@@ -1,6 +1,10 @@
 <dx-button text="Press me" (onClick)="helloWorld()"></dx-button>
 
 <dx-data-grid [dataSource]="data">
+    <dxo-filter-row 
+        [visible]="true"></dxo-filter-row>
+    <dxo-header-filter 
+        [visible]="true"></dxo-header-filter>    
     <dxi-column dataField="firstName" caption="First Name"></dxi-column>
     <dxi-column dataField="lastName" caption="Last Name" [visible]="showLastName"></dxi-column>
 </dx-data-grid>

@@ -17,6 +17,8 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
 
+import './localization';
+
 declare const module: any;
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
