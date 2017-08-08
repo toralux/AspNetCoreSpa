@@ -17,6 +17,10 @@ export class DevExtremeTestComponent {
         {
             firstName: 'Nikolai',
             lastName: 'Hegelstad'
+        },
+        {
+            firstName: 'Viktor',
+            lastName: 'Kjartansson'
         }
     ];
     showLastName = false;
