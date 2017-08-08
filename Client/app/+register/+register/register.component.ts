@@ -31,8 +31,8 @@ export class RegisterComponent implements OnInit {
         const controls: Array<ControlBase<any>> = [
             new ControlTextbox({
                 key: 'username',
-                label: 'Username',
-                placeholder: 'Username',
+                label: 'Brukernavn',
+                placeholder: 'Brukernavn',
                 value: '',
                 type: 'textbox',
                 required: true,
@@ -40,8 +40,8 @@ export class RegisterComponent implements OnInit {
             }),
             new ControlTextbox({
                 key: 'firstname',
-                label: 'Firstname',
-                placeholder: 'Firstname',
+                label: 'Fornavn',
+                placeholder: 'Fornavn',
                 value: '',
                 type: 'textbox',
                 required: true,
@@ -49,8 +49,8 @@ export class RegisterComponent implements OnInit {
             }),
             new ControlTextbox({
                 key: 'lastname',
-                label: 'Lastname',
-                placeholder: 'Lastname',
+                label: 'Etternavn',
+                placeholder: 'Etternavn',
                 value: '',
                 type: 'textbox',
                 required: true,
@@ -58,8 +58,8 @@ export class RegisterComponent implements OnInit {
             }),
             new ControlTextbox({
                 key: 'email',
-                label: 'Email',
-                placeholder: 'Email',
+                label: 'E-post',
+                placeholder: 'E-post',
                 value: '',
                 type: 'email',
                 required: true,
@@ -67,8 +67,8 @@ export class RegisterComponent implements OnInit {
             }),
             new ControlTextbox({
                 key: 'password',
-                label: 'Password',
-                placeholder: 'Password',
+                label: 'Passord',
+                placeholder: 'Passord',
                 value: '',
                 type: 'password',
                 required: true,
