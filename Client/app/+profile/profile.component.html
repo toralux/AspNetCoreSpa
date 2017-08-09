@@ -1,6 +1,9 @@
 <!--Alert message-->
 <div class="row">
-    <ngb-alert *ngIf="notificationMessage" type="success" (close)="notificationMessage = null">{{ notificationMessage }}</ngb-alert>
+    <div *ngIf="notificationMessage" class="alert alert-warning alert-dismissible" role="alert">
+        <button (click)="notificationMessage = null" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{ notificationMessage }}
+    </div>
 </div>
 
 <div class="row">
